@@ -11,7 +11,7 @@ class Ready(commands.Cog):
 
     @commands.command()
     @commands.has_permissions(administrator=True)
-    async def status(self, ctx, message : str):
+    async def status(self, ctx, *message : str):
         if len(message) <= 15:
             await ctx.send(f"`[protocol] changed status msg to: {message}`", delete_after=30)
             await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=message))
