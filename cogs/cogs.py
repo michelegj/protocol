@@ -37,7 +37,7 @@ class OwnerCog(commands.Cog):
         except Exception as e:
             await ctx.send(f"`[cogs] error: {type(e).__name__} - {e}`", delete_after=20)
         else:
-            await ctx.send(f"`[cogs] loaded '{cog}' cog`", delete_after=20)
+            await ctx.send(f"`[protocol] loaded '{cog}' cog`", delete_after=20)
             try:
                 self.loaded.append(cog)
                 self.unloaded.remove(cog)
@@ -53,7 +53,7 @@ class OwnerCog(commands.Cog):
         except Exception as e:
             await ctx.send(f"`[cogs] error: {type(e).__name__} - {e}`", delete_after=20)
         else:
-            await ctx.send(f"`[cogs] unloaded '{cog}' cog`", delete_after=20)
+            await ctx.send(f"`[protocol] unloaded '{cog}' cog`", delete_after=20)
             try:
                 self.loaded.append(cog)
                 self.unloaded.remove(cog)
@@ -70,7 +70,7 @@ class OwnerCog(commands.Cog):
         except Exception as e:
             await ctx.send(f"`[cogs] error: {type(e).__name__} - {e}`", delete_after=20)
         else:
-            await ctx.send(f"`[cogs] reloaded '{cog}' cog`", delete_after=20)
+            await ctx.send(f"`[protocol] reloaded '{cog}' cog`", delete_after=20)
         await ctx.message.delete()
 
     @cog.command()
@@ -80,12 +80,12 @@ class OwnerCog(commands.Cog):
             if len(self.loaded) != 0:  
                 await ctx.send(f"`[loaded cogs list]\n -{f'{self.slash} -'.join(map(str, self.loaded))}`", delete_after=20)
             else:
-                await ctx.send(f"`[cogs] there are no loaded cogs`", delete_after=20)
+                await ctx.send(f"`[protocol] there are no loaded cogs`", delete_after=20)
         if check == "u" or check == "unloaded":
             if len(self.unloaded) != 0: 
                 await ctx.send(f"`[unloaded cogs list]\n -{f'{self.slash} -'.join(map(str, self.unloaded))}`", delete_after=20)
             else:
-                await ctx.send(f"`[cogs] there are no unloaded cogs`", delete_after=20)
+                await ctx.send(f"`[protocol] there are no unloaded cogs`", delete_after=20)
         await ctx.message.delete()
         
 async def setup(bot):
